@@ -1,7 +1,7 @@
 N = input('Введите натуральное число N - ')
 while True:
     try:
-        if int(N) >= 0 and int(N) == float(N) and ('00' != N[:2]):
+        if N.isdigit() == True and N[0]!='0':
             N = N
         else:
             raise Exception
@@ -11,7 +11,8 @@ while True:
         break
 def Recursion(N):
     if len(N) == 1:
-        return N
+        print(N)
     else:
-        return Recursion(N[1:])+N[:1]
-print(list([Recursion(N).split('')]))
+        print(N[-1],end = ' ')
+        return Recursion(N[:-1])
+Recursion(N)
